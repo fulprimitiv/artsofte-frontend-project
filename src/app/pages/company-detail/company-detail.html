@@ -1,1 +1,13 @@
-<p>company-detail works!</p>
+<div class="company-detail-wrapper" *ngIf="company$ | async as company">
+  <section class="company-detail">
+    <div class="company-detail__header">
+      <img class="company-detail__logo" [src]="company.logo" [alt]="company.business_name">
+      <h2 class="company-detail__name">{{ company.suffix }} «{{ company.business_name }}»</h2>
+    </div>
+
+    <p class="company-detail__industry"><strong>Индустрия:</strong> {{ company.industry }}</p>
+    <p class="company-detail__catch-phrase"><strong>Слоган:</strong> {{ company.catch_phrase }}</p>
+    <p class="company-detail__phone"><strong>Телефон:</strong> {{ company.phone_number }}</p>
+    <p class="company-detail__address"><strong>Адрес:</strong> {{ company.full_address }}</p>
+  </section>
+</div>
