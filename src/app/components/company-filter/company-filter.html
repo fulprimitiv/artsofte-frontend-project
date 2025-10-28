@@ -1,1 +1,17 @@
-<p>company-filter works!</p>
+<form class="filter" [formGroup]="form">
+  <input type="text" class="filter__search" formControlName="search" placeholder="Поиск по названию" />
+
+  <select class="filter__select" formControlName="type">
+    <option value="">Все типы</option>
+    @for (t of uniqueTypes; ; track t) {
+    <option [value]="t">{{ t }}</option>
+    }
+  </select>
+
+  <select class="filter__select" formControlName="industry">
+    <option value="">Все индустрии</option>
+    @for (i of uniqueIndustries; ; track i) {
+    <option [value]="i">{{ i }}</option>
+    }
+  </select>
+</form>

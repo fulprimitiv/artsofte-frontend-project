@@ -1,0 +1,14 @@
+.filter {
+  display: flex;
+  justify-self: end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 16px 0;
+
+
+  &__search, &__select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+}

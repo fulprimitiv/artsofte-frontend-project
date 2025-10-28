@@ -1,5 +1,7 @@
 <section class="company-list">
   <app-company-sort (sortChange)="sortCompanies($event)"></app-company-sort>
+  <app-company-filter [companies]="companies" (filterChange)="applyFilter($event)">
+  </app-company-filter>
 
   @for (company of sortedCompanies; track company.id) {
   <app-company-item [company]="company"></app-company-item>
