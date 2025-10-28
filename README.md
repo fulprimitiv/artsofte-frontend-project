@@ -1,59 +1,80 @@
-# ArtsofteFrontendProject
+# Тестовое задание на вакансию frontend developer junior (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.7.
+## # Endpoint
 
-## Development server
+Endpoint для получения списка компаний  https://faker-api.milki.space/
 
-To start a local development server, run:
+## # Замечания + Что можно улучшить:
+- Не стал подключать медиазапросы для мобильных устройств, отображается в целом все хорошо на любых разрешениях. (Навигация в шапке съезжает, но не критично, поэтому не стал фиксить при помощи изменения на боковое меню)
+- Страница /map использует заглушку с обычной Яндекс.Картой, список заведений не отображается на карте - этот пункт уже в ТЗ для мидла.
+- Ссылку на реальный API не стал размещать в env, тк не на продакшен проект.
+- Шрифты не вынесены в /fonts, так как по ТЗ это не требовалось.
+- Логотипы компаний загружаются с внешнего сервера, отдельной загрузки нет.
+- Эндпоинт из Readme не работал, выгрузил 50 компаний, а не все 1000, ленивую загрузку не делал, тк это уже для мидла ТЗ.
+- По верстке нельзя было использовать марджины, поэтому выравнивание реализовано через надстройки над блоками и паддинги.
+
+## # Запуск в режиме разработки
+
+Запуск локалхоста:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Откроется `http://localhost:4200/` в браузере.
 
-## Code scaffolding
+## # Для junior (реализовано)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. Реализовать роутинг приложения.
+	В приложении должен быть layout - приложения (компонента layout-component).
+	А также 3 роута:
+	- /list или / , который ведёт на компоненту company-list, список компаний.
+	- /detail/:id , который ведёт на компоненту company-detail, детальную страницу о компании.
+	- /map , который ведёт на компоненту company-yandex-map, отображение компаний на карте.
 
-```bash
-ng generate component component-name
-```
+2. Реализовать страницу со списком компаний.
+	- Список должен состоять как минимум из 2-х компонент:
+		- company-item, в которой отображаются данные: логотип (logo), название компании (в формате: suffix "business_name"), вид деятельности (industry) и тип (type).
+		- company-list, в которой содержится массив company-item.
+	- Сервис, для запросов на endpoint.
+	- В html отображается массив company-item.
+	
+3. Реализовать страницу с подробной информации о конкретной компании (компонента company-detail).
+	- Переход на данную страницу происходит при клике на компанию в списке (компонента company-item).
+	- В company-detail должны быть следующие данные: логотип (logo), название компании (в формате: suffix "business_name"), вид деятельности (industry), слоган (catch_phrase), контактный номер телефона (phone_number), адрес (full_address).
+	
+4. На странице со списком компаний (компонента company-list) реализовать функционал сортировки.
+	- Реализовать компоненту company-sort, которая генерирует эвент для сортировки списка компаний.
+	- Сортировать по: названию, типу, виду деятельности.
+	- При клике по сорт-полю, должен автоматически перестраиваться список.
+	- Связать сортировку с компонентой company-list через Input/Output или через сервис.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+5.  На страницу со списком компаний (компонента company-list) добавить функционал фильтрации.
+	- Реализовать компоненту company-filter, которая генерирует эвент для фильтрации списка компаний.
+	- Контролы в фильтре: text-box поиск по названию, select-box с типами компаний, select-box с видами деятельности.
+	- Это должна быть форма, реализованная с помощью модуля ReactiveForm.
+	- При изменение поля, должна автоматически происходить фильтрация списка компаний, компоненты company-list.
+	- Связать фильтрацию с компонентой company-list через Input/Output или через сервис.
 
-```bash
-ng generate --help
-```
+## # Примерные макеты
 
-## Building
+Список компаний
+![Макет_1](https://user-images.githubusercontent.com/85609295/125302004-fe614180-e344-11eb-8f74-9ca920347d57.png)
 
-To build the project run:
+Детайльная информация о компании
+![Макет_1](https://user-images.githubusercontent.com/85609295/125308880-b80ee100-e34a-11eb-84a5-55d06484a453.png)
 
-```bash
-ng build
-```
+Яндекс карта 
+![Макет_2](https://user-images.githubusercontent.com/85609295/125308538-6b2b0a80-e34a-11eb-9d89-b3821ba65044.png)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
+## # Требования к вёрстке
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+	- Вёрстка должна быть семантичная
+	- Стиль написания классов должен быть по методологии бэм
+	- Стили должны быть изолированые для каждой компоненты
+	- Нельзя использовать фреймворки для вёрстки типа bootstrap
+	- Не допускается использование внешних отступов внутри компонент
+	- Стили должны быть в формате .scss
+	- Не допускается использование глобальны классов
+	- Запрещено использовать !important
