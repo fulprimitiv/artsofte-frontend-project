@@ -1,0 +1,52 @@
+.company-item {
+  display: flex;
+
+  gap: 16px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+   > :last-child {
+    margin-left: auto;
+  }
+
+  &__logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__name {
+    font-size: 18px;
+    padding-bottom: 6px;
+    font-weight: 600;
+  }
+
+  &__details {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+  }
+  &__button {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background-color: #fff;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: #333;
+      color: #fff;
+    }
+  }
+}

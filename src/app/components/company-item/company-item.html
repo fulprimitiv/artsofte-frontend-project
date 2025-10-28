@@ -1,1 +1,13 @@
-<p>company-item works!</p>
+<div class="company-item">
+  <img class="company-item__logo" [src]="company.logo" [alt]="company.business_name">
+
+  <div class="company-item__info">
+    <h3 class="company-item__name">{{ company.suffix }} «{{ company.business_name }}»</h3>
+    <p class="company-item__details">
+      {{ company.industry }} | {{ company.type }}
+    </p>
+  </div>
+  <button class="company-item__button" [routerLink]="['/detail', company.id]">
+    Подробнее
+  </button>
+</div>

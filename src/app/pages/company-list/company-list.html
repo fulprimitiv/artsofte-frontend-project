@@ -1,1 +1,4 @@
-<p>company-list works!</p>
+<section class="company-list">
+  <app-company-item *ngFor="let company of companies$ | async; trackBy: trackById"
+    [company]="company"></app-company-item>
+</section>
