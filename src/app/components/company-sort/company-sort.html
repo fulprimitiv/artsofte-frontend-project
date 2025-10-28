@@ -1,1 +1,6 @@
-<p>company-sort works!</p>
+<div class="company-sort">
+  <span class="company-sort__label">Сортировать по:</span>
+  <button class="company-sort__btn" (click)="onSort('name')">Названию</button>
+  <button class="company-sort__btn" (click)="onSort('industry')">Индустрии</button>
+  <button class="company-sort__btn" (click)="onSort('type')">Типу</button>
+</div>

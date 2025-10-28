@@ -1,0 +1,30 @@
+.company-sort {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+   &__label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+  }
+
+  &__btn {
+    padding: 8px 14px;
+    background: #f2f2f2;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+    color: #333;
+
+    &:hover {
+      background: #dcdcdc;
+    }
+  }
+}

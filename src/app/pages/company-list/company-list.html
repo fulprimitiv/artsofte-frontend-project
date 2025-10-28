@@ -1,4 +1,7 @@
 <section class="company-list">
-  <app-company-item *ngFor="let company of companies$ | async; trackBy: trackById"
-    [company]="company"></app-company-item>
+  <app-company-sort (sortChange)="sortCompanies($event)"></app-company-sort>
+
+  @for (company of sortedCompanies; track company.id) {
+  <app-company-item [company]="company"></app-company-item>
+  }
 </section>
