@@ -1,1 +1,31 @@
-<p>layout-component works!</p>
+<header class="layout__header">
+  <div class="layout__header-container">
+    <div class="layout__logo">
+      <div class="layout__logo">
+        <a routerLink="/">
+          <img src="/assets/images/artsofte-logo.svg" alt="Artsofte Logo" class="layout__logo-img" />
+        </a>
+      </div>
+
+    </div>
+
+    <nav class="layout__nav">
+      <a routerLink="/list" routerLinkActive="layout__nav-item--active" class="layout__nav-item">
+        Список компаний
+      </a>
+      <a routerLink="/map" routerLinkActive="layout__nav-item--active" class="layout__nav-item">
+        На карте
+      </a>
+    </nav>
+
+
+    <div class="layout__tag">
+      <span class="layout__tag-text">Еремеев Д.А.</span>
+    </div>
+  </div>
+</header>
+
+
+<main class="layout__content">
+  <router-outlet></router-outlet>
+</main>
